@@ -1,0 +1,100 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Round</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container"> 
+    <ion-card>
+        <ion-card-title>Hikoikoi Reserve</ion-card-title>
+        <ion-card-subtitle>Current Round - Started 7:35 PM</ion-card-subtitle>
+
+        <hr>
+
+        <div class="round-stats">
+      
+        <div class="round-stat">
+          <p>HOLES</p>
+          <h2>3</h2>
+        </div>
+
+        <div class="round-stat">
+          <p>TOTAL SCORE</p>
+          <h2>+1</h2>
+        </div>
+
+        <div class="round-stat">
+          <p>THROWS</p>
+          <h2>12</h2>
+        </div>
+
+      </div>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-title>Hole 3</ion-card-title>
+      <hr>
+      <p>PAR</p>
+      <div class="hole-stats">
+
+        <ion-button fill="outline" shape="round" id="minus-button" size="small">
+          <ion-icon slot="icon-only" name="remove"></ion-icon>
+        </ion-button>
+
+        <h3>3</h3>
+
+        <ion-button fill="outline" shape="round" size="small">
+          <ion-icon slot="icon-only" name="add"></ion-icon>
+        </ion-button>
+
+      </div>
+      <p>THROWS</p>
+      <div class="hole-stats">
+
+        <ion-button fill="outline" shape="round" id="minus-button" size="small">
+          <ion-icon slot="icon-only" name="remove"></ion-icon>
+        </ion-button>
+
+        <h3>4</h3>
+
+        <ion-button fill="outline" shape="round" size="small">
+          <ion-icon slot="icon-only" name="add"></ion-icon>
+        </ion-button>
+
+      </div>
+      <ion-button>Next Hole</ion-button>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-title>Scorecard</ion-card-title>
+      <hr>
+      <ion-card-content>
+
+      <ion-list>
+
+        <ion-item class="prev-stats">
+          <div class="stat-row">
+            <ion-label>Hole 1</ion-label>
+            <p>Par 3</p>
+            <p class="score">4</p>
+          </div>
+        </ion-item>
+
+        <ion-item class="prev-stats">
+          <div class="stat-row">
+            <ion-label>Hole 2</ion-label>
+            <p>Par 4</p>
+            <p class="score">4</p>
+          </div>
+        </ion-item>
+
+      </ion-list>
+
+      </ion-card-content>
+    </ion-card>
+
+    <ion-button routerLink="/tabs/home">Save Round</ion-button>
+
+  </div>
+</ion-content>

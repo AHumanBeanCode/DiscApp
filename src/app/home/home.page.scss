@@ -4,24 +4,30 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
-#container strong {
+#container ion-button {
   font-size: 20px;
-  line-height: 26px;
+  color:#F1F3EF;
+  --background: #4C9B62;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+#container ion-card {
+  --background: #222B25;
+  padding: 20px;
+  border-radius: 20px;
 }
 
-#container a {
-  text-decoration: none;
+#container .subcard {
+  --background: #4C9B62;
 }
+
+ion-content {
+  --background: #151A17;
+}
+
+ion-toolbar {
+  --background: #222B25;
+  --color:#F1F3EF;
+}
+
