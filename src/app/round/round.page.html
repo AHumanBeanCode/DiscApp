@@ -16,35 +16,35 @@
       
         <div class="round-stat">
           <p>HOLES</p>
-          <h2>3</h2>
+          <h2>{{hole}}</h2>
         </div>
 
         <div class="round-stat">
           <p>TOTAL SCORE</p>
-          <h2>+1</h2>
+          <h2>{{ (totalThrows - totalPar > 0 ? '+' : '') + (totalThrows - totalPar) }}</h2>
         </div>
 
         <div class="round-stat">
           <p>THROWS</p>
-          <h2>12</h2>
+          <h2>{{totalThrows}}</h2>
         </div>
 
       </div>
     </ion-card>
 
     <ion-card>
-      <ion-card-title>Hole 3</ion-card-title>
+      <ion-card-title>Hole {{ hole }}</ion-card-title>
       <hr>
       <p>PAR</p>
       <div class="hole-stats">
 
-        <ion-button fill="outline" shape="round" id="minus-button" size="small">
+        <ion-button fill="outline" shape="round" id="minus-button" size="small" (click)="decreasePar()">
           <ion-icon slot="icon-only" name="remove"></ion-icon>
         </ion-button>
 
-        <h3>3</h3>
+        <h3> {{ par }}</h3>
 
-        <ion-button fill="outline" shape="round" size="small">
+        <ion-button fill="outline" shape="round" size="small" (click)="increasePar()">
           <ion-icon slot="icon-only" name="add"></ion-icon>
         </ion-button>
 
@@ -52,18 +52,18 @@
       <p>THROWS</p>
       <div class="hole-stats">
 
-        <ion-button fill="outline" shape="round" id="minus-button" size="small">
+        <ion-button fill="outline" shape="round" id="minus-button" size="small" (click)="decreaseThrows()">
           <ion-icon slot="icon-only" name="remove"></ion-icon>
         </ion-button>
 
-        <h3>4</h3>
+        <h3> {{ throws }} </h3>
 
-        <ion-button fill="outline" shape="round" size="small">
+        <ion-button fill="outline" shape="round" size="small" (click)="increaseThrows()">
           <ion-icon slot="icon-only" name="add"></ion-icon>
         </ion-button>
 
       </div>
-      <ion-button>Next Hole</ion-button>
+      <ion-button (click)="nextHole()">Next Hole</ion-button>
     </ion-card>
 
     <ion-card>
@@ -72,22 +72,15 @@
       <ion-card-content>
 
       <ion-list>
-
-        <ion-item class="prev-stats">
-          <div class="stat-row">
-            <ion-label>Hole 1</ion-label>
-            <p>Par 3</p>
-            <p class="score">4</p>
-          </div>
-        </ion-item>
-
-        <ion-item class="prev-stats">
-          <div class="stat-row">
-            <ion-label>Hole 2</ion-label>
-            <p>Par 4</p>
-            <p class="score">4</p>
-          </div>
-        </ion-item>
+        @for (score of scores; track score.hole) {
+          <ion-item class="prev-stats">
+            <div class="stat-row">
+              <ion-label>Hole {{ score.hole }}</ion-label>
+              <p>Par {{ score.par }}</p>
+              <p class="score">{{ score.throws }} Throws</p>
+            </div>
+          </ion-item>
+        }
 
       </ion-list>
 
