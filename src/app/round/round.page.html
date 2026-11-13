@@ -7,8 +7,13 @@
 <ion-content [fullscreen]="true">
   <div id="container"> 
     <ion-card>
-        <ion-card-title>Hikoikoi Reserve</ion-card-title>
-        <ion-card-subtitle>Current Round - Started 7:35 PM</ion-card-subtitle>
+        <ion-input
+          [(ngModel)]="courseName"
+          placeholder="Enter course name"
+          class="course-input"
+          maxlength="50">
+        </ion-input>
+        <ion-card-subtitle>Current Round - Started {{ date | date:'h:mm a' }}</ion-card-subtitle>
 
         <hr>
 
@@ -16,7 +21,7 @@
       
         <div class="round-stat">
           <p>HOLES</p>
-          <h2>{{hole}}</h2>
+          <h2>{{scores.length}}</h2>
         </div>
 
         <div class="round-stat">
@@ -63,7 +68,7 @@
         </ion-button>
 
       </div>
-      <ion-button (click)="nextHole()">Next Hole</ion-button>
+      <ion-button (click)="nextHole()">Save Hole</ion-button>
     </ion-card>
 
     <ion-card>
@@ -87,7 +92,9 @@
       </ion-card-content>
     </ion-card>
 
-    <ion-button routerLink="/tabs/home">Save Round</ion-button>
-
   </div>
 </ion-content>
+
+<ion-tab-bar slot="bottom">
+  <ion-button (click)="saveRound()">Save Round</ion-button>
+</ion-tab-bar>

@@ -1,39 +1,16 @@
+
+/* Main layout */
+
 #container {
   text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
+  width: 100%;
+  max-width: 55rem;
+  margin: 0 auto;
+  padding: clamp(0.75rem, 3vw, 1.875rem);
+  box-sizing: border-box;
 }
 
-#container ion-button {
-  font-size: 20px;
-  color:#F1F3EF;
-  --background: #4C9B62;
-}
-
-#container #minus-button {
-  font-size: 20px;
-  color:#F1F3EF;
-  --background: #aab5ac;
-}
-
-#container ion-card {
-  --background: #222B25;
-  padding: 20px;
-  border-radius: 20px;
-}
-
-#container .subcard {
-  --background: #4C9B62;
-}
-
-#container hr {
-  border: 0;
-  height: 1px;
-  background: #F1F3EF;
-  margin: 8px 0;
-}
+/* Colours */
 
 ion-content {
   --background: #151A17;
@@ -41,15 +18,53 @@ ion-content {
 
 ion-toolbar {
   --background: #222B25;
-  --color:#F1F3EF;
+  --color: #F1F3EF;
 }
+
+/* Cards */
+
+#container ion-card {
+  --background: #222B25;
+  padding: clamp(0.75rem, 2vw, 1.25rem);
+  border-radius: 1.25rem;
+  margin: 0 0 1rem;
+}
+
+#container .subcard {
+  --background: #4C9B62;
+}
+
+/* Buttons */
+
+ion-button {
+  font-size: clamp(0.9rem, 1.5vw, 1.25rem);
+  --color: #F1F3EF;
+  --background: #4C9B62;
+}
+
+#container #minus-button {
+  --color: #F1F3EF;
+  --background: #AAB5AC;
+}
+
+/* Dividers */
+
+#container hr {
+  border: 0;
+  height: 1px;
+  background: #F1F3EF;
+  margin: 0.5rem 0;
+}
+
+/* Overall round statistics */
 
 .round-stats {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 15px 5px;
+  padding: 1rem 0.3rem;
+  gap: 0.5rem;
 }
 
 .round-stat {
@@ -57,38 +72,48 @@ ion-toolbar {
   flex-direction: column;
   align-items: center;
   flex: 1;
-}
-
-.hole-stats {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  width: max-content;
-  padding: 15px 5px;
-  margin: 0 auto;
+  min-width: 0;
 }
 
 p {
-    margin: 0;
-    font-size: 12px;
-    color: #aab5ac;
-  }
+  margin: 0;
+  font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+  color: #AAB5AC;
+}
 
 h2 {
-  margin: 5px 0 0;
-  font-size: 28px;
+  margin: 0.3rem 0 0;
+  font-size: clamp(1.4rem, 3vw, 1.75rem);
   color: #F1F3EF;
   font-weight: bold;
 }
 
-h3 {
-  margin: 0 0;
-  padding: 0 20px;
-  font-size: 72px;
+/* Hole controls */
+
+.hole-stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0.75rem, 4vw, 2rem);
+  width: 100%;
+  padding: 1rem 0;
+  margin: 0 auto;
+}
+
+.hole-stats h3 {
+  margin: 0;
+  padding: 0;
+  font-size: clamp(2.5rem, 10vw, 4.5rem);
   color: #F1F3EF;
   font-weight: bold;
+  min-width: 2ch;
 }
+
+.hole-stats ion-button {
+  flex-shrink: 0;
+}
+
+/* Scorecard */
 
 ion-list {
   background: transparent;
@@ -110,12 +135,14 @@ ion-item {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 10px 5px;
+  gap: 0.5rem;
+  padding: 0.75rem 0.3rem;
 }
 
 .stat-row ion-label,
 .stat-row p {
   flex: 1;
+  min-width: 0;
 }
 
 .stat-row ion-label {
@@ -131,4 +158,29 @@ ion-item {
   text-align: right;
   font-weight: bold;
   color: #F1F3EF;
+}
+
+/* Bottom save button */
+
+ion-tab-bar {
+  --background: #151A17;
+  --border: 1px solid #29332C;
+
+  height: clamp(3.5rem, 9vh, 4.5rem);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+ion-tab-bar ion-button {
+  width: 100%;
+  max-width: 55rem;
+  margin: 0 auto;
+  padding: clamp(0.75rem, 3vw, 1.875rem);
+}
+
+.course-input {
+  --color: #F1F3EF;
+  --placeholder-color: #AAB5AC;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-weight: bold;
+  text-align: center;
 }

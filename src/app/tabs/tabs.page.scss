@@ -1,19 +1,21 @@
+
 ion-tab-bar {
-  --background: #151a17;
-  --border: 1px solid #29332c;
-  height: 65px;
-  padding-bottom: 5px;
+  --background: #151A17;
+  --border: 1px solid #29332C;
+
+  height: clamp(3.5rem, 9vh, 4.5rem);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 ion-tab-button {
-  --color: #89948c;
-  --color-selected: #b5e66b;
+  --color: #89948C;
+  --color-selected: #B5E66B;
 }
 
 ion-tab-button ion-icon {
-  font-size: 22px;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
 }
 
 ion-tab-button ion-label {
-  font-size: 11px;
+  font-size: clamp(0.65rem, 1.5vw, 0.8rem);
 }

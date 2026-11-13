@@ -6,6 +6,7 @@
 
 <ion-content [fullscreen]="true">
   <div id="container">  
+
     <ion-card>
       <ion-card-content>
         <ion-card-title>Ready to Play?</ion-card-title>
@@ -13,15 +14,30 @@
         <ion-button routerLink="/round">Start New Round</ion-button>
       </ion-card-content>
     </ion-card>
-    <ion-card>
-      <!-- <ion-card class="subcard">
-        <strong>Hikoikoi Reserve 25(27)</strong>
+
+    <h2>Recent Rounds</h2>
+
+    @for (round of savedRounds; track round.hole) {
+      <ion-card>
+        <ion-card-content>
+          <div class="round-stats">
+            <div class="round-info">
+              <ion-card-title>{{round.course}}</ion-card-title>
+              <ion-card-subtitle>{{round.date | date:'dd/MM/yyyy h:mm a'}}</ion-card-subtitle>
+            </div>
+            <h3>{{round.totalScore}}({{round.totalPar}})</h3>
+          </div>
+        </ion-card-content>
       </ion-card>
-      -->
-      <ion-card-content>
-        <ion-card-title>No rounds yet</ion-card-title>
-        <ion-card-subtitle>Completed rounds will show up here.</ion-card-subtitle>
-      </ion-card-content>
-    </ion-card>
+    }
+    @empty {
+      <ion-card>
+        <ion-card-content>
+          <ion-card-title>No rounds yet</ion-card-title>
+          <ion-card-subtitle>Completed rounds will show up here.</ion-card-subtitle>
+        </ion-card-content>
+      </ion-card>
+    }
+
   </div>
 </ion-content>
